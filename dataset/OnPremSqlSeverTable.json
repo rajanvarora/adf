@@ -1,0 +1,17 @@
+{
+	"name": "OnPremSqlSeverTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPremSQLServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "lego",
+			"table": "themes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

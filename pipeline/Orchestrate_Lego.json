@@ -1,0 +1,42 @@
+{
+	"name": "Orchestrate_Lego",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lego_HTTP_to_ADLS_Themes",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Lego_HTTP_to_ADLS_Themes",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Lego_ADLS_to_ASQL_Themes",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Lego_HTTP_to_ADLS_Themes",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Lego_ADLS_to_ASQL_Themes",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

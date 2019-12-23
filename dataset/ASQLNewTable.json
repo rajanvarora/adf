@@ -1,0 +1,17 @@
+{
+	"name": "ASQLNewTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ASQL_Entertainment",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "lego",
+			"table": "themes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,6 @@
+{
+	"name": "RajanLaptopIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

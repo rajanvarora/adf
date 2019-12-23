@@ -1,0 +1,12 @@
+{
+	"name": "ASQL_Entertainment",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=asqlrajan.database.windows.net;initial catalog=Entertainment;user id=rajan",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlJBSkFOLUFERl8wMGZkNWMyNy05OWYwLTQyNDUtYTQ0Yy00MmE1M2M0YmJjZjYiDQp9"
+		}
+	}
+}
