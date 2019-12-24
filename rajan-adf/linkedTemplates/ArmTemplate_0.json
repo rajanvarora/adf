@@ -166,7 +166,8 @@
 				},
 				"parameters": {
 					"FileName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "themes"
 					}
 				},
 				"annotations": [],
@@ -184,7 +185,17 @@
 					"escapeChar": "\\",
 					"quoteChar": "\""
 				},
-				"schema": []
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ADLS_RajanArora')]"
@@ -201,7 +212,8 @@
 				},
 				"parameters": {
 					"FileName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "themes"
 					}
 				},
 				"annotations": [],
@@ -219,7 +231,17 @@
 					"firstRowAsHeader": false,
 					"quoteChar": "\""
 				},
-				"schema": []
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/HTTP_Lego')]"
@@ -264,11 +286,11 @@
 						"userProperties": [
 							{
 								"name": "Source",
-								"value": "@{'<FileName>'}.csv"
+								"value": "@{pipeline().parameters.FileName}.csv"
 							},
 							{
 								"name": "Destination",
-								"value": "/Lego/@{'<FileName>'}.csv"
+								"value": "lego//@{pipeline().parameters.FileName}.csv"
 							}
 						],
 						"typeProperties": {
@@ -290,7 +312,7 @@
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
-									"fileExtension": ".txt"
+									"fileExtension": ""
 								}
 							},
 							"enableStaging": false,
@@ -325,7 +347,8 @@
 				],
 				"parameters": {
 					"FileName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "themes"
 					}
 				},
 				"annotations": []
