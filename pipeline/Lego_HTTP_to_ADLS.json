@@ -1,7 +1,7 @@
 {
 	"name": "Lego_HTTP_to_ADLS",
 	"properties": {
-		"description": "copy themes csv from rebrickable to azure data lake storage",
+		"description": "copy csv files from rebrickable to azure data lake storage",
 		"activities": [
 			{
 				"name": "CopyData_Lego_Themes",
