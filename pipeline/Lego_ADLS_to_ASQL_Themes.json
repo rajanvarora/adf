@@ -1,7 +1,0 @@
-{
-	"name": "Lego_ADLS_to_ASQL_Themes",
-	"properties": {
-		"annotations": []
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
-}
