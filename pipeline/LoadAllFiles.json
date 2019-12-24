@@ -65,28 +65,28 @@
 								"variableName": "Files",
 								"value": "part_relationships"
 							}
-						},
-						{
-							"name": "Set List Of Files",
-							"type": "SetVariable",
-							"dependsOn": [
-								{
-									"activity": "Append Part Relationships",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "ListOfFiles",
-								"value": {
-									"value": "@join(variables('Files'),',')",
-									"type": "Expression"
-								}
-							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Set List Of Files",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "If Load All Files",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "ListOfFiles",
+					"value": {
+						"value": "@join(variables('Files'),',')",
+						"type": "Expression"
+					}
 				}
 			}
 		],
