@@ -26,7 +26,7 @@
 					"name": "DerColLoadDate"
 				}
 			],
-			"script": "\n\nsource(output(\n\t\tid as string,\n\t\tname as string,\n\t\tparent_id as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> SrcLegoThemes\nSrcLegoThemes derive(LoadDate = currentTimestamp()) ~> DerColLoadDate\nDerColLoadDate sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\ttruncate:true,\n\tformat: 'table') ~> sink1"
+			"script": "\n\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> SrcLegoThemes\nSrcLegoThemes derive(LoadDate = currentTimestamp()) ~> DerColLoadDate\nDerColLoadDate sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\ttruncate:true,\n\tformat: 'table') ~> sink1"
 		}
 	}
 }

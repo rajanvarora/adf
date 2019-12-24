@@ -17,11 +17,11 @@
 				"userProperties": [
 					{
 						"name": "Source",
-						"value": "themes.csv"
+						"value": "@{pipeline().parameters.FileName}"
 					},
 					{
 						"name": "Destination",
-						"value": "lego//themes.csv"
+						"value": "lego//@{pipeline().parameters.FileName}.csv"
 					}
 				],
 				"typeProperties": {
@@ -39,10 +39,7 @@
 						"type": "DelimitedTextSink",
 						"storeSettings": {
 							"type": "AzureBlobFSWriteSettings",
-							"copyBehavior": {
-								"value": "@pipeline().parameters.FileName",
-								"type": "Expression"
-							}
+							"copyBehavior": "addDynamicContent"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -75,7 +72,13 @@
 				"outputs": [
 					{
 						"referenceName": "ADLS_Lego",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
