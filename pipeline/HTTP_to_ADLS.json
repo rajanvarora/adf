@@ -42,7 +42,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ""
 						}
 					},
 					"enableStaging": false,
@@ -55,7 +55,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@pipeline().parameters.FileName",
+								"value": "@{pipeline().parameters.FileName}.csv",
 								"type": "Expression"
 							}
 						}
@@ -67,7 +67,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@pipeline().parameters.FileName",
+								"value": "@{pipeline().parameters.FileName}.csv",
 								"type": "Expression"
 							}
 						}
