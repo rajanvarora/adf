@@ -54,8 +54,12 @@
 							"referenceName": "Blob_RajanArora",
 							"type": "LinkedServiceReference"
 						},
-						"path": "lego/errors/themes"
-					}
+						"path": {
+							"value": "lego/errors/@{pipeline().parameters.FileName}.csv",
+							"type": "Expression"
+						}
+					},
+					"dataIntegrationUnits": 2
 				},
 				"inputs": [
 					{
