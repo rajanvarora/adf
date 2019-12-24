@@ -34,6 +34,18 @@
 						"value": "@pipeline().parameters.LoadAllFiles",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "Append variable2",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "ListOfFiles",
+								"value": "falsevariable1, falsevariable2"
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "Append variable1",
@@ -61,9 +73,9 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "ListOfFiles",
+					"variableName": "FileName",
 					"value": {
-						"value": "@join(variables('FileName'),',')",
+						"value": "@join(variables('ListOfFiles'),',')",
 						"type": "Expression"
 					}
 				}
