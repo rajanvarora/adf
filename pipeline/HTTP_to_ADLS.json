@@ -16,11 +16,11 @@
 				"userProperties": [
 					{
 						"name": "Source",
-						"value": "@{'<FileName>'}.csv"
+						"value": "@{pipeline().parameters.FileName}.csv"
 					},
 					{
 						"name": "Destination",
-						"value": "/Lego/@{'<FileName>'}.csv"
+						"value": "lego//@{pipeline().parameters.FileName}.csv"
 					}
 				],
 				"typeProperties": {
@@ -55,7 +55,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@{pipeline().parameters.FileName}.csv",
+								"value": "@pipeline().parameters.FileName",
 								"type": "Expression"
 							}
 						}
@@ -67,7 +67,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@{pipeline().parameters.FileName}.csv",
+								"value": "@pipeline().parameters.FileName",
 								"type": "Expression"
 							}
 						}
