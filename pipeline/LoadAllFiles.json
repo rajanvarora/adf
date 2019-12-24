@@ -8,7 +8,7 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "FIles",
+					"variableName": "Files",
 					"value": [
 						"colors",
 						"themes"
@@ -39,26 +39,8 @@
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "FIles",
+								"variableName": "Files",
 								"value": "colors"
-							}
-						},
-						{
-							"name": "Append variable2",
-							"description": "",
-							"type": "AppendVariable",
-							"dependsOn": [
-								{
-									"activity": "Append variable1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "FIles",
-								"value": "themes"
 							}
 						}
 					]
@@ -79,7 +61,7 @@
 				"typeProperties": {
 					"variableName": "ListOfFiles",
 					"value": {
-						"value": "@variables('FIles')",
+						"value": "@variables('Files')",
 						"type": "Expression"
 					}
 				}
@@ -91,7 +73,7 @@
 			}
 		},
 		"variables": {
-			"FIles": {
+			"Files": {
 				"type": "Array"
 			},
 			"ListOfFiles": {
