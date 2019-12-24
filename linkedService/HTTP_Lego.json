@@ -1,6 +1,5 @@
 {
 	"name": "HTTP_Lego",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "HttpServer",
@@ -8,7 +7,6 @@
 			"url": "https://cdn.rebrickable.com/media/downloads/",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
-		},
-		"description": "Connector_HTTP_Rebrickable"
+		}
 	}
 }

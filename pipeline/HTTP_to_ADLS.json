@@ -1,10 +1,9 @@
 {
-	"name": "Lego_HTTP_to_ADLS",
+	"name": "HTTP_to_ADLS",
 	"properties": {
-		"description": "copy csv files from rebrickable to azure data lake storage",
 		"activities": [
 			{
-				"name": "CopyData_Lego_Themes",
+				"name": "HTTP_to_ADLS_Lego",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -17,11 +16,11 @@
 				"userProperties": [
 					{
 						"name": "Source",
-						"value": "@{pipeline().parameters.FileName}"
+						"value": "@{'<FileName>'}.csv"
 					},
 					{
 						"name": "Destination",
-						"value": "lego//@{pipeline().parameters.FileName}.csv"
+						"value": "/Lego/@{'<FileName>'}.csv"
 					}
 				],
 				"typeProperties": {
@@ -38,8 +37,7 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings",
-							"copyBehavior": "addDynamicContent"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -48,17 +46,7 @@
 						}
 					},
 					"enableStaging": false,
-					"enableSkipIncompatibleRow": true,
-					"redirectIncompatibleRowSettings": {
-						"linkedServiceName": {
-							"referenceName": "Blob_RajanArora",
-							"type": "LinkedServiceReference"
-						},
-						"path": {
-							"value": "lego/errors/@{pipeline().parameters.FileName}.csv",
-							"type": "Expression"
-						}
-					},
+					"enableSkipIncompatibleRow": false,
 					"dataIntegrationUnits": 2
 				},
 				"inputs": [
@@ -89,11 +77,9 @@
 		],
 		"parameters": {
 			"FileName": {
-				"type": "String",
-				"defaultValue": "FileName"
+				"type": "string"
 			}
 		},
 		"annotations": []
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+	}
 }
