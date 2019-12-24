@@ -19,7 +19,7 @@
 					"value": "@{dataset().FileName}.csv",
 					"type": "Expression"
 				},
-				"folderPath": "Lego"
+				"fileSystem": "lego"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
