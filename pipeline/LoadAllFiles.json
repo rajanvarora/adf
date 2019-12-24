@@ -1,6 +1,68 @@
 {
 	"name": "LoadAllFiles",
 	"properties": {
+		"activities": [
+			{
+				"name": "Set List Of Files",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "ListOfFiles",
+					"value": [
+						"file1",
+						" file2",
+						" file3",
+						" End"
+					]
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Set List Of Files",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@pipeline().parameters.LoadAllFiles",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "Append variable1",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "ListOfFiles",
+								"value": "append1, append2"
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"LoadAllFiles": {
+				"type": "bool",
+				"defaultValue": false
+			}
+		},
+		"variables": {
+			"ListOfFiles": {
+				"type": "Array"
+			},
+			"FileName": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
