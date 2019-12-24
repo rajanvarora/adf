@@ -1,5 +1,5 @@
 {
-	"name": "Lego_HTTP_to_ADLS_Themes",
+	"name": "Lego_HTTP_to_ADLS",
 	"properties": {
 		"description": "copy themes csv from rebrickable to azure data lake storage",
 		"activities": [
@@ -38,7 +38,11 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							}
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -58,8 +62,14 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "HTTP_Lego_Themes",
-						"type": "DatasetReference"
+						"referenceName": "HTTP_Lego",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -70,6 +80,12 @@
 				]
 			}
 		],
+		"parameters": {
+			"FileName": {
+				"type": "String",
+				"defaultValue": "FileName"
+			}
+		},
 		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"

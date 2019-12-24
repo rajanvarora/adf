@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "Lego_HTTP_to_ADLS_Themes",
+						"referenceName": "Lego_HTTP_to_ADLS",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
