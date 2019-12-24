@@ -1,0 +1,30 @@
+{
+	"name": "ADLS_Lego",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_RajanArora",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@{dataset().FileName}.csv",
+					"type": "Expression"
+				},
+				"folderPath": "Lego"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
