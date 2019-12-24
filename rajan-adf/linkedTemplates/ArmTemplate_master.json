@@ -1,0 +1,104 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "rajan-adf"
+		},
+		"ADLS_RajanArora_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_RajanArora'"
+		},
+		"ASQL_Entertainment_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ASQL_Entertainment'"
+		},
+		"Blob_RajanArora_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Blob_RajanArora'"
+		},
+		"OnPremSQLServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'OnPremSQLServer'"
+		},
+		"ADLS_RajanArora_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://rajanaroraadls.dfs.core.windows.net"
+		},
+		"HTTP_Lego_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "asqlrajan.database.windows.net"
+		},
+		"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "rajan"
+		},
+		"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS_RajanArora_accountKey": {
+						"value": "[parameters('ADLS_RajanArora_accountKey')]"
+					},
+					"ASQL_Entertainment_connectionString": {
+						"value": "[parameters('ASQL_Entertainment_connectionString')]"
+					},
+					"Blob_RajanArora_connectionString": {
+						"value": "[parameters('Blob_RajanArora_connectionString')]"
+					},
+					"OnPremSQLServer_connectionString": {
+						"value": "[parameters('OnPremSQLServer_connectionString')]"
+					},
+					"ADLS_RajanArora_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_RajanArora_properties_typeProperties_url')]"
+					},
+					"HTTP_Lego_properties_typeProperties_url": {
+						"value": "[parameters('HTTP_Lego_properties_typeProperties_url')]"
+					},
+					"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
+					},
+					"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
+					},
+					"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

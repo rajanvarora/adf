@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "rajan-adf"
+		},
+		"ADLS_RajanArora_accountKey": {
+			"value": ""
+		},
+		"ASQL_Entertainment_connectionString": {
+			"value": ""
+		},
+		"Blob_RajanArora_connectionString": {
+			"value": ""
+		},
+		"OnPremSQLServer_connectionString": {
+			"value": ""
+		},
+		"ADLS_RajanArora_properties_typeProperties_url": {
+			"value": "https://rajanaroraadls.dfs.core.windows.net"
+		},
+		"HTTP_Lego_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "asqlrajan.database.windows.net"
+		},
+		"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"value": "rajan"
+		},
+		"SSISIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"value": ""
+		}
+	}
+}
