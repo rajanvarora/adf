@@ -77,8 +77,7 @@
 		],
 		"parameters": {
 			"FileName": {
-				"type": "string",
-				"defaultValue": "themes"
+				"type": "string"
 			}
 		},
 		"annotations": []
