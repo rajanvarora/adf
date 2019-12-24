@@ -61,8 +61,8 @@
 				}
 			},
 			{
-				"name": "Set variable1",
-				"type": "SetVariable",
+				"name": "ForEach1",
+				"type": "ForEach",
 				"dependsOn": [
 					{
 						"activity": "If Condition1",
@@ -73,11 +73,23 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "FileName",
-					"value": {
-						"value": "@join(variables('ListOfFiles'),',')",
+					"items": {
+						"value": "@variables('ListOfFiles')",
 						"type": "Expression"
-					}
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Append variable3",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "OutputList",
+								"value": "@item()"
+							}
+						}
+					]
 				}
 			}
 		],
@@ -91,8 +103,8 @@
 			"ListOfFiles": {
 				"type": "Array"
 			},
-			"FileName": {
-				"type": "String"
+			"OutputList": {
+				"type": "Array"
 			}
 		},
 		"annotations": []
