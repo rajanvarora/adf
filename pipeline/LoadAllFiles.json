@@ -42,7 +42,17 @@
 							"userProperties": [],
 							"typeProperties": {
 								"variableName": "ListOfFiles",
-								"value": "falsevariable1, falsevariable2"
+								"value": "falsevariable1"
+							}
+						},
+						{
+							"name": "Append variable2_copy1",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "ListOfFiles",
+								"value": "falsevariable2"
 							}
 						}
 					],
@@ -54,7 +64,17 @@
 							"userProperties": [],
 							"typeProperties": {
 								"variableName": "ListOfFiles",
-								"value": "append1, append2"
+								"value": "trueappend1"
+							}
+						},
+						{
+							"name": "Append variable1_copy1",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "ListOfFiles",
+								"value": "trueappend2"
 							}
 						}
 					]
