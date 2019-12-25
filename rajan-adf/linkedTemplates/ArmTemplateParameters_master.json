@@ -5,6 +5,15 @@
 		"factoryName": {
 			"value": "rajan-adf"
 		},
+		"ADLS_Rajan_accountKey": {
+			"value": ""
+		},
+		"HTTP_Movie_properties_typeProperties_url": {
+			"value": "https://www.kaggle.com/rounakbanik/the-movies-dataset"
+		},
+		"ADLS_Rajan_properties_typeProperties_url": {
+			"value": "https://rajanaroraadls.dfs.core.windows.net"
+		},
 		"containerUri": {
 			"value": ""
 		},
