@@ -1,0 +1,12 @@
+{
+	"name": "HTTP_Movie",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://www.kaggle.com/rounakbanik/the-movies-dataset",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
