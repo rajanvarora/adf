@@ -35,48 +35,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "Lego",
-								"type": "DatasetReference"
-							},
-							"name": "LegoSetsSource",
-							"typeProperties": {}
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "LegoDataParts",
-								"type": "DatasetReference"
-							},
-							"name": "OutputLegoParts"
-						}
-					],
-					"transformations": [
-						{
-							"name": "AlterRow1"
-						},
-						{
-							"name": "AvgNumberParts"
-						}
-					],
-					"script": "\n\nsource(output(\n\t\tset_num as string,\n\t\tname as string,\n\t\tyear as short,\n\t\ttheme_id as short,\n\t\tnum_parts as short\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false) ~> LegoSetsSource\nLegoSetsSource alterRow(deleteIf(year<2007)) ~> AlterRow1\nAlterRow1 aggregate(groupBy(year),\n\tnum_parts = toDecimal(avg(num_parts), 10, 2)) ~> AvgNumberParts\nLegoSetsSource sink(input(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false) ~> OutputLegoParts"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Lego')]",
-				"[concat(variables('factoryId'), '/datasets/LegoDataParts')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/HTTP_Movie')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -149,48 +107,6 @@
 					},
 					{
 						"name": "num_parts",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ADLS_Rajan')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LegoDataParts')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ADLS_Rajan",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "lego"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
 						"type": "String"
 					}
 				]
